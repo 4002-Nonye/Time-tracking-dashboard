@@ -48,7 +48,7 @@ const dailyFetch = async function () {
   }
 };
 
-// FETCHING INFO FOR DAILY
+// FETCHING INFO FOR WEEKLY
 const weeklyFetch = async function () {
   try {
     const jsonData = await getJson("./data.json", { mode: "no-cors" });
@@ -62,7 +62,7 @@ const weeklyFetch = async function () {
     renderError();
   }
 };
-// FETCHING INFO FOR DAILY
+// FETCHING INFO FOR MONTHLY
 const monthlyFetch = async function () {
   try {
     const jsonData = await getJson("./data.json", { mode: "no-cors" });
