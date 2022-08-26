@@ -3,45 +3,71 @@ const interval = document.querySelectorAll(".interval");
 const days = document.querySelector(".btm-report-box");
 const hours = document.querySelectorAll(".hrs");
 const h2 = document.querySelectorAll(".h2");
+const error = document.querySelector(".errmsg");
+let p =
+  "No Internet connection <br> Check your connection, then refresh the page.";
+const renderError = (msg) => {
+  const getMode = window.navigator.onLine;
+
+  if (!getMode) {
+    error.innerHTML = `${msg}`;
+  } else {
+    error.innerHTML = "";
+  }
+};
 
 //LITTLE HELPER FUNCTION TO GET DATA FROM DATA.JSON
 const getJson = async (url) => {
   const response = await fetch(url);
+  // console.log(response)
+  // if(!response.ok) throw new Error('Problem getting data')
   const data = await response.json();
-  //   console.log(data)
+  console.log(data);
   return data;
 };
 
 // FETCHING INFO FOR DAILY
 const dailyFetch = async function () {
-  const jsonData = await getJson("./data.json", { mode: "no-cors" });
-  hours.forEach((e, i) => {
-    h2[i].innerHTML = `${jsonData[i].timeframes.daily.current}hrs`;
-    hours[
-      i
-    ].innerHTML = `Yesterday - ${jsonData[i].timeframes.daily.previous}hrs`;
-  });
+  try {
+    const jsonData = await getJson("./data.json", { mode: "no-cors" });
+    hours.forEach((e, i) => {
+      h2[i].innerHTML = `${jsonData[i].timeframes.daily.current}hrs`;
+      hours[
+        i
+      ].innerHTML = `Yesterday - ${jsonData[i].timeframes.daily.previous}hrs`;
+    });
+  } catch (err) {
+    renderError(p);
+  }
 };
 
 // FETCHING INFO FOR DAILY
 const weeklyFetch = async function () {
-  const jsonData = await getJson("./data.json", { mode: "no-cors" });
-  hours.forEach((e, i) => {
-    h2[i].innerHTML = `${jsonData[i].timeframes.weekly.current}hrs`;
-    hours[
-      i
-    ].innerHTML = `Last week - ${jsonData[i].timeframes.weekly.previous}hrs`;
-  });
+  try {
+    const jsonData = await getJson("./data.json", { mode: "no-cors" });
+    hours.forEach((e, i) => {
+      h2[i].innerHTML = `${jsonData[i].timeframes.weekly.current}hrs`;
+      hours[
+        i
+      ].innerHTML = `Last week - ${jsonData[i].timeframes.weekly.previous}hrs`;
+    });
+  } catch (err) {
+    renderError(p);
+  }
 };
 // FETCHING INFO FOR DAILY
 const monthlyFetch = async function () {
-  const jsonData = await getJson("./data.json", { mode: "no-cors" });
-  hours.forEach((e, i) => {
-    h2[i].innerHTML = `${jsonData[i].timeframes.monthly.current}hrs`;
-    hours[
-      i
-    ].innerHTML = `Last month - ${jsonData[i].timeframes.monthly.previous}hrs`;
-  });
+  try {
+    const jsonData = await getJson("./data.json", { mode: "no-cors" });
+    hours.forEach((e, i) => {
+      h2[i].innerHTML = `${jsonData[i].timeframes.monthly.current}hrs`;
+      hours[
+        i
+      ].innerHTML = `Last month - ${jsonData[i].timeframes.monthly.previous}hrs`;
+    });
+  } catch (err) {
+    renderError(p);
+  }
 };
 
 //ADDING ACTIVE CLASS TO CLICKED ELEMENT
