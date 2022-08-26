@@ -14,7 +14,7 @@ const getJson = async (url) => {
 
 // FETCHING INFO FOR DAILY
 const dailyFetch = async function () {
-  const jsonData = await getJson("./data.json");
+  const jsonData = await getJson("./data.json", { mode: "no-cors" });
   hours.forEach((e, i) => {
     h2[i].innerHTML = `${jsonData[i].timeframes.daily.current}hrs`;
     hours[
@@ -25,7 +25,7 @@ const dailyFetch = async function () {
 
 // FETCHING INFO FOR DAILY
 const weeklyFetch = async function () {
-  const jsonData = await getJson("./data.json");
+  const jsonData = await getJson("./data.json", { mode: "no-cors" });
   hours.forEach((e, i) => {
     h2[i].innerHTML = `${jsonData[i].timeframes.weekly.current}hrs`;
     hours[
@@ -35,7 +35,7 @@ const weeklyFetch = async function () {
 };
 // FETCHING INFO FOR DAILY
 const monthlyFetch = async function () {
-  const jsonData = await getJson("./data.json");
+  const jsonData = await getJson("./data.json", { mode: "no-cors" });
   hours.forEach((e, i) => {
     h2[i].innerHTML = `${jsonData[i].timeframes.monthly.current}hrs`;
     hours[
