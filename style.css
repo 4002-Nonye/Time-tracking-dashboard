@@ -27,17 +27,19 @@
   --pale-blue: hsl(236, 100%, 87%);
 }
 /*HANDLING SPINNER*/
-
+.spinner-hidden{
+  opacity: 0;
+}
 .spinner {
   margin: 1rem auto;
   text-align: center;
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: 30%;
 }
 .svg {
-  height: 6rem;
-  width: 6rem;
-  fill: #f38e82;
+ 
   animation: move 1s infinite ease;
 }
 
