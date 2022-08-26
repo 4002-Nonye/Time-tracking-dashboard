@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  
+  </head>
+  <body>
+    <div class="container-grid">
+      <div class="jeremy-report">
+        <div class="top-report-box">
+          <img
+            src="assets/images/image-jeremy.png"
+            alt="jeremy-image"
+            class="jeremy-img"
+          />
+          <div class="just-hold">
+            <p class="report-p">Report for</p>
+            <h1 class="jeremy">Jeremy Robson</h1>
+          </div>
+        </div>
+        <div class="btm-report-box">
+          <p class="daily interval active">Daily</p>
+          <p class="weekly interval">Weekly</p>
+          <p class="monthly interval">Monthly</p>
+        </div>
+      </div>
+      <div class="work-report report">
+        <div class="work-img img-container work">
+          <img
+            src="assets/images/icon-work.svg"
+            alt="icon work"
+            class="icons"
+          />
+        </div>
+        <div class="work-details details">
+          <div class="work-head-img">
+            <div class="head-img">
+              <h1 class="h1">Work</h1>
+              <img
+                src="assets/images/icon-ellipsis.svg "
+                alt="icon-ellipsis"
+                class="ellipsis"
+              />
+            </div>
+            <div class="another-hold">
+              <h2 class="h2">5hrs</h2>
+              <p class="hrs">Yesterday - 7hrs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="play-report report">
+        <div class="play-img img-container play">
+          <img
+            src="assets/images/icon-play.svg"
+            alt="icon play"
+            class="icons"
+          />
+        </div>
+        <div class="play-details details">
+          <div class="play-head-img">
+            <div class="head-img">
+              <h1 class="h1">Play</h1>
+              <img
+                src="assets/images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="ellipsis"
+              />
+            </div>
+            <div class="another-hold">
+              <h2 class="h2">1hrs</h2>
+              <p class="hrs">Yesterday - 2hrs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="study-report report">
+        <div class="study-img img-container study">
+          <img
+            src="assets/images/icon-study.svg"
+            alt="icon study"
+            class="icons"
+          />
+        </div>
+        <div class="study-details details">
+          <div class="study-head-img">
+            <div class="head-img">
+              <h1 class="h1">Study</h1>
+              <img
+                src="assets/images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="ellipsis"
+              />
+            </div>
+            <div class="another-hold">
+              <h2 class="h2">0hrs</h2>
+              <p class="hrs">Yesterday - 1hrs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="exercise-report report">
+        <div class="exercise-img img-container exercise">
+          <img
+            src="assets/images/icon-exercise.svg"
+            alt="icon exercise"
+            class="icons exercise-icon"
+          />
+        </div>
+        <div class="exercise-details details">
+          <div class="exercise-head-img">
+            <div class="head-img">
+              <h1 class="h1">Exercise</h1>
+              <img
+                src="assets/images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="ellipsis"
+              />
+            </div>
+            <div class="another-hold">
+              <h2 class="h2">1hrs</h2>
+              <p class="hrs">Yesterday - 1hrs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="social-report report">
+        <div class="social-img img-container social">
+          <img
+            src="assets/images/icon-social.svg"
+            alt="icon social"
+            class="icons social-icon"
+          />
+        </div>
+        <div class="social-details details">
+          <div class="social-head-img">
+            <div class="head-img">
+              <h1 class="h1">Social</h1>
+              <img
+                src="assets/images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="ellipsis"
+              />
+            </div>
+            <div class="another-hold">
+              <h2 class="h2">1hrs</h2>
+              <p class="hrs">Yesterday - 3hrs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="self-care-report report">
+        <div class="self-care-img img-container self-care">
+          <img
+            src="assets/images/icon-self-care.svg"
+            alt="icon self-care"
+            class="icons"
+          />
+        </div>
+        <div class="self-care-details details">
+          <div class="self-care-head-img">
+            <div class="head-img">
+              <h1 class="h1">Self Care</h1>
+              <img
+                src="assets/images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="ellipsis"
+              />
+            </div>
+            <div class="another-hold">
+              <h2 class="h2">0hrs</h2>
+              <p class="hrs">Yesterday - 1hrs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/4002-Nonye">Nono</a>.
+    </div>
+  </body>
+</html>
