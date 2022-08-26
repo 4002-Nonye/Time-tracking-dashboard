@@ -26,7 +26,49 @@
   --desaturated-blue: hsl(235, 45%, 61%);
   --pale-blue: hsl(236, 100%, 87%);
 }
+/*HANDLING SPINNER*/
 
+.spinner {
+  margin: 1rem auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.svg {
+  height: 6rem;
+  width: 6rem;
+  fill: #f38e82;
+  animation: move 1s infinite ease;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(1px);
+  }
+
+  100% {
+    transform:translateX(10px);
+  }
+}
+/*ERROR HANDLING*/
+.error {
+  position: fixed;
+  top: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p.errmsg {
+  color: black;
+  text-align: center;
+  line-height: 1.4;
+  font-size: 20px;
+}
+.hidden {
+  display: none;
+  opacity: 0;
+}
 body {
   background-color: var(--very-dark-blue);
   display: flex;
@@ -220,6 +262,15 @@ body {
     height: 100%;
     margin: 4rem 0;
   }
+  .entire-container {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
   .container-grid {
     /* all: unset; */
     display: grid;
@@ -233,6 +284,9 @@ body {
   }
 }
 @media only screen and (max-width: 500px) {
+  p.errmsg {
+    font-size: 17px;
+  }
   .container-grid {
     all: unset;
     display: flex;
@@ -255,6 +309,7 @@ body {
   }
   .jeremy-report {
     max-width: unset;
+    width: 100%;
   }
   .jeremy {
     font-size: 30px;
@@ -270,14 +325,14 @@ body {
     align-items: center;
   }
   .h2 {
-    font-size: 24px;
+    font-size: 19px;
   }
   .hrs,
   .h2 {
     margin-bottom: unset;
   }
   .hrs {
-    font-size: 15px;
+    font-size: 14px;
   }
   .report {
     width: unset;
