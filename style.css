@@ -213,13 +213,26 @@ body {
   letter-spacing: 0.2ch;
 }
 .attribution a {
-  color: var(--light-red-work)
+  color: var(--light-red-work);
 }
 @media only screen and (max-width: 1000px) {
   body {
     height: 100%;
     margin: 4rem 0;
   }
+  .container-grid {
+    /* all: unset; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+  }
+  .jeremy-report {
+    max-width: unset;
+    grid-column: 1/-1;
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 500px) {
   .container-grid {
     all: unset;
     display: flex;
@@ -271,8 +284,10 @@ body {
   }
 }
 @media only screen and (max-width: 450px) {
-.report-p{
+  .report-p {
     font-size: 15px;
+  }
+  .jeremy {
+    font-size: 20px;
+  }
 }
-.jeremy {
-    font-size: 20px;}}
