@@ -7,13 +7,16 @@ const error = document.querySelector(".errmsg");
 const container = document.querySelector(".entire-container");
 const spinner = document.querySelector(".spinner");
 
+function timeout(seconds) {
+  return new Promise((resolve) => setTimeout(resolve, seconds));
+}
 //LITTLE HELPER FUNCTION TO RENDER SPINNER WHILE USER WAITS FOR DATA TO BE FETCHED
 const renderSpinner = () => {
-  spinner.classList.remove("hidden");
+  spinner.classList.remove("spinner-hidden");
 };
 //LITTLE HELPER FUNCTION TO HIDE SPINNER AFTER DATA HAS BEEN FETCHED
 const hideSpinner = () => {
-  spinner.classList.add("hidden");
+  spinner.classList.add("spinner-hidden");
 };
 
 //LITTLE HELPER FUNCTION TO GET DATA FROM DATA.JSON
@@ -24,6 +27,7 @@ const getJson = async (url) => {
   if (response) hideSpinner();
   const data = await response.json();
   //   console.log(data)
+
   return data;
 };
 //LITTLE HELPER FUNCTION TO RENDER ERROR
