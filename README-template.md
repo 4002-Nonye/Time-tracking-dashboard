@@ -25,7 +25,7 @@ Users should be able to:
 
 ### Screenshot
 
-![PAGE SCREENSHOT](time-tracking-dashboard.jpg)
+![PAGE SCREENSHOT](time-tracking-dashboard.png)
 
 ### Links
 
