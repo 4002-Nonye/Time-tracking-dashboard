@@ -4,26 +4,33 @@ const days = document.querySelector(".btm-report-box");
 const hours = document.querySelectorAll(".hrs");
 const h2 = document.querySelectorAll(".h2");
 const error = document.querySelector(".errmsg");
-let p =
-  "No Internet connection <br> Check your connection, then refresh the page.";
-const renderError = (msg) => {
-  const getMode = window.navigator.onLine;
+const container = document.querySelector(".entire-container");
+const spinner = document.querySelector(".spinner");
 
-  if (!getMode) {
-    error.innerHTML = `${msg}`;
-  } else {
-    error.innerHTML = "";
-  }
+//LITTLE HELPER FUNCTION TO RENDER SPINNER WHILE USER WAITS FOR DATA TO BE FETCHED
+const renderSpinner = () => {
+  spinner.classList.remove("hidden");
+};
+//LITTLE HELPER FUNCTION TO HIDE SPINNER AFTER DATA HAS BEEN FETCHED
+const hideSpinner = () => {
+  spinner.classList.add("hidden");
 };
 
 //LITTLE HELPER FUNCTION TO GET DATA FROM DATA.JSON
 const getJson = async (url) => {
+  renderSpinner();
   const response = await fetch(url);
-  // console.log(response)
-  // if(!response.ok) throw new Error('Problem getting data')
+  if (!response.ok) throw new Error("Problem getting data");
+  if (response) hideSpinner();
   const data = await response.json();
-  console.log(data);
+  //   console.log(data)
   return data;
+};
+//LITTLE HELPER FUNCTION TO RENDER ERROR
+const renderError = () => {
+  error.classList.remove("hidden");
+  container.style.display = "none";
+  document.body.style.backgroundColor = "white";
 };
 
 // FETCHING INFO FOR DAILY
@@ -37,7 +44,7 @@ const dailyFetch = async function () {
       ].innerHTML = `Yesterday - ${jsonData[i].timeframes.daily.previous}hrs`;
     });
   } catch (err) {
-    renderError(p);
+    renderError();
   }
 };
 
@@ -52,7 +59,7 @@ const weeklyFetch = async function () {
       ].innerHTML = `Last week - ${jsonData[i].timeframes.weekly.previous}hrs`;
     });
   } catch (err) {
-    renderError(p);
+    renderError();
   }
 };
 // FETCHING INFO FOR DAILY
@@ -66,7 +73,7 @@ const monthlyFetch = async function () {
       ].innerHTML = `Last month - ${jsonData[i].timeframes.monthly.previous}hrs`;
     });
   } catch (err) {
-    renderError(p);
+    renderError();
   }
 };
 
