@@ -27,28 +27,30 @@
   --pale-blue: hsl(236, 100%, 87%);
 }
 /*HANDLING SPINNER*/
-.spinner-hidden{
+.spinner-hidden {
   opacity: 0;
 }
 .spinner {
   margin: 1rem auto;
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
-
+  margin-left: -3rem;
 }
 .svg {
-  animation: move 1s infinite ease;
+  width: 3rem;
+
+  animation: move 3s infinite linear;
 }
 
 @keyframes move {
   0% {
-    transform: translateX(1px);
+    transform: rotate(0deg);
   }
 
   100% {
-    transform:translateX(10px);
+    transform: rotate(360deg);
   }
 }
 /*ERROR HANDLING*/
@@ -140,10 +142,21 @@ body {
   align-items: flex-start;
   padding-top: 3rem;
 }
-
+button {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: flex-start;
+}
+button:active {
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+  transform: translateY(4px);
+  /* Moving button 4px to y-axis */
+}
 /*SELECTING THE INTERVALS TEXTS*/
 .interval {
   padding-bottom: 0.8rem;
+  font-size: 17px;
   font-weight: 300;
   color: var(--pale-blue);
   cursor: pointer;
@@ -153,11 +166,11 @@ body {
 .monthly {
   padding-bottom: 0.4rem !important;
 }
-.interval:hover {
+/* .interval:hover {
   color: white;
-}
+} */
 .active {
-  color: white;
+  color: var(--light-red-study);
 }
 /*STYLING EACH REPORT CONTAINER*/
 
