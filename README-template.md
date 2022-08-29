@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [ SOLUTION URL ](https://your-solution-url.com)
+- Solution URL: [ SOLUTION URL ](https://www.frontendmentor.io/solutions/time-tracking-dashboard-ae5CUMvHty)
 - Live Site URL: [ LIVE SITE ](https://4002-nonye.github.io/Time-tracking-dashboard/)
 
 ## My process
