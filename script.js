@@ -1,5 +1,5 @@
 "use strict";
-const interval = document.querySelectorAll(".interval");
+const interval = document.querySelectorAll("button");
 const days = document.querySelector(".btm-report-box");
 const hours = document.querySelectorAll(".hrs");
 const h2 = document.querySelectorAll(".h2");
@@ -7,9 +7,6 @@ const error = document.querySelector(".errmsg");
 const container = document.querySelector(".entire-container");
 const spinner = document.querySelector(".spinner");
 
-function timeout(seconds) {
-  return new Promise((resolve) => setTimeout(resolve, seconds));
-}
 //LITTLE HELPER FUNCTION TO RENDER SPINNER WHILE USER WAITS FOR DATA TO BE FETCHED
 const renderSpinner = () => {
   spinner.classList.remove("spinner-hidden");
@@ -20,13 +17,13 @@ const hideSpinner = () => {
 };
 
 //LITTLE HELPER FUNCTION TO GET DATA FROM DATA.JSON
-const getJson = async (url) => {
+const getJson = async () => {
   renderSpinner();
-  const response = await fetch(url);
+
+  const response = await fetch("./data.json", { mode: "no-cors" });
   if (!response.ok) throw new Error("Problem getting data");
   if (response) hideSpinner();
   const data = await response.json();
-  //   console.log(data)
 
   return data;
 };
@@ -40,12 +37,18 @@ const renderError = () => {
 // FETCHING INFO FOR DAILY
 const dailyFetch = async function () {
   try {
-    const jsonData = await getJson("./data.json", { mode: "no-cors" });
+    const jsonData = await getJson();
     hours.forEach((e, i) => {
-      h2[i].innerHTML = `${jsonData[i].timeframes.daily.current}hrs`;
-      hours[
-        i
-      ].innerHTML = `Yesterday - ${jsonData[i].timeframes.daily.previous}hrs`;
+      let finalData = jsonData[i].timeframes.daily.current;
+      let finalDataDaily = jsonData[i].timeframes.daily.previous;
+
+      //CHECK IF NUMBER IS GREATER THAN 1 , ONFALSE - HR.... ONTRUE - HRS
+      let hrs = finalData > 1 ? "hrs" : "hr";
+      let time = finalDataDaily > 1 ? "hrs" : "hr";
+
+      h2[i].innerHTML = `${finalData}${hrs}`;
+
+      hours[i].innerHTML = ` Yesterday - ${finalDataDaily}${time}`;
     });
   } catch (err) {
     renderError();
@@ -55,7 +58,7 @@ const dailyFetch = async function () {
 // FETCHING INFO FOR WEEKLY
 const weeklyFetch = async function () {
   try {
-    const jsonData = await getJson("./data.json", { mode: "no-cors" });
+    const jsonData = await getJson();
     hours.forEach((e, i) => {
       h2[i].innerHTML = `${jsonData[i].timeframes.weekly.current}hrs`;
       hours[
@@ -69,7 +72,7 @@ const weeklyFetch = async function () {
 // FETCHING INFO FOR MONTHLY
 const monthlyFetch = async function () {
   try {
-    const jsonData = await getJson("./data.json", { mode: "no-cors" });
+    const jsonData = await getJson();
     hours.forEach((e, i) => {
       h2[i].innerHTML = `${jsonData[i].timeframes.monthly.current}hrs`;
       hours[
